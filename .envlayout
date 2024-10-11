@@ -1,0 +1,6 @@
+NAME=djcrm
+USER=user
+PASSWORD=
+HOST=localhost
+PORT=3306
+SECRET_KEY=
