@@ -4,10 +4,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from website.forms import SingUpForm
+from website.models import Record
 
 
 def home(request):
     """Home view"""
+
+    records = Record.objects.all()
 
     # Check to see if logged in
     if request.method == "POST":
@@ -27,7 +30,7 @@ def home(request):
             )
             return redirect("home")
     else:
-        return render(request, "home.html", {})
+        return render(request, "home.html", {"records": records})
 
 
 def logout_user(request):
